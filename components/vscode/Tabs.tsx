@@ -1,7 +1,7 @@
 "use client";
 
 import { TabItem } from "@/lib/types";
-import { getFileIconColor } from "@/lib/fileIcons";
+import { getFileIcon } from "@/lib/fileIcons";
 import { getFileParentFolder } from "@/data/fileSystem";
 
 type Props = {
@@ -20,6 +20,7 @@ export default function Tabs({ tabs, activeId, onTabClick, onTabClose }: Props) 
       <div className="flex bg-[#1e1e1e] border-b border-white/10 overflow-x-auto">
         {tabs.map((tab) => {
           const isActive = tab.id === activeId;
+          const { icon: Icon, color } = getFileIcon(tab.name);
           return (
             <div
               key={tab.id}
@@ -28,7 +29,7 @@ export default function Tabs({ tabs, activeId, onTabClick, onTabClose }: Props) 
                 isActive ? "bg-[#252526] text-white border-t-2 border-t-blue-500" : "text-gray-400 hover:bg-white/5"
               }`}
             >
-              <span className={`w-2.5 h-2.5 rounded-xs ${getFileIconColor(tab.name)}`} />
+              <Icon size={14} className={color} />
               <span>{tab.name}</span>
               <button
                 onClick={(e) => {
