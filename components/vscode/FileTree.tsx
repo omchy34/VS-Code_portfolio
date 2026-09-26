@@ -37,7 +37,7 @@ function TreeItem({ node, onFileClick, activeId, depth }: TreeItemProps) {
       <li>
         <button
           onClick={() => setOpen(!open)}
-          className="flex items-center gap-1 w-full text-left text-[13px] text-gray-300 hover:bg-white/5 px-1 py-[3px] rounded"
+          className="flex items-center gap-1 w-full text-left text-[13px] text-gray-300 hover:bg-white/5 px-1 py-0.75 rounded"
         >
           <ChevronRight
             size={14}
@@ -62,8 +62,8 @@ function TreeItem({ node, onFileClick, activeId, depth }: TreeItemProps) {
     <li>
       <button
         onClick={() => onFileClick(node.id, node.name)}
-        className={`flex items-center gap-2 w-full text-left text-[13px] px-1 py-[3px] rounded ${
-          isRootFile ? "pl-[22px]" : "pl-[18px]"
+        className={`flex items-center gap-2 w-full text-left text-[13px] px-1 py-0.75 rounded ${
+          isRootFile ? "pl-5.5" : "pl-4.5"
         } ${isActive ? "bg-white/10 text-white" : "text-gray-300 hover:bg-white/5"}`}
       >
         <Icon size={14} className={`shrink-0 ${color}`} />
